@@ -26,9 +26,8 @@
       
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <button class="btn btn-info my-2 my-sm-0" type="submit">Log in</button>
-      <button class="btn btn-primary ml-2 my-2 my-sm-0" type="submit">Register</button>
-      
+      <a href="<?php echo $appPath;?>public/login.php" class="btn btn-info my-2 my-sm-0 text-light" type="submit">Log in</a>
+      <a class="btn btn-primary ml-2 my-2 my-sm-0 text-light" type="submit">Register</a>
     </form>
   </div>
 </nav>
