@@ -1,7 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">
-        <?php echo $appName;?>
-    </a>
+    <a class="navbar-brand" href="home"><img src="<?php echo $appPath;?>img/carmax_logo.png" width="100" height="30" alt="Logo"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
