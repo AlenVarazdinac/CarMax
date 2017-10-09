@@ -32,7 +32,7 @@
             <a href="<?php echo $appPath;?>public/login.php" class="btn btn-info my-2 my-sm-0 text-light" type="submit">Log in</a>
             <a class="btn btn-primary ml-2 my-2 my-sm-0 text-light" type="submit">Register</a>
             <?php else: ?>
-            <a href="<?php echo $appPath;?>public/logout.php" class="btn btn-primary ml-2 my-2 my-sm-0 text-light" type="submit">Log out</a>
+            <a href="<?php echo $appPath;?>public/logout.php" class="btn btn-danger ml-2 my-2 my-sm-0 text-light" type="submit">Log out</a>
             <?php endif; ?>
         </form>
     </div>

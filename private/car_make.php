@@ -20,14 +20,16 @@
 
         <?php foreach($result as $carMake): ?>
         
-        <div class="col-md-3 jumbotron">
-            <p><?php echo $carMake->car_make_name;?></p>
+        <div class="col-md-3 jumbotron py-5">
+           
+            <?php if(file_exists("../img/car_make/" . $carMake->car_make_id . ".png")) : ?>
+               <img src="<?php echo $appPath . "img/car_make/" . $carMake->car_make_id . ".png";?>" alt="Car Make Logo" class="w-100" />
+               
+            <?php endif; ?>
+            <a href="#" class="btn btn-primary d-flex justify-content-center mb-0">Show</a>
         </div>
         
         <?php endforeach; ?>
-
-
-
 
 
     </div>
