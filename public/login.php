@@ -57,8 +57,7 @@
 
     </div>
 
-
-
+    <?php include_once '../includes/footer-inc.php';?>
 
     <?php include_once '../includes/scripts-inc.php';?>
 </body>
