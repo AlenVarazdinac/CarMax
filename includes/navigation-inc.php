@@ -16,7 +16,7 @@
           Browse
         </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="<?php echo $appPath;?>private/car_make.php">Car make</a>
+                    <a class="dropdown-item" href="<?php echo $appPath;?>private/car_make/car_make.php">Car make</a>
                     <a class="dropdown-item" href="#">Car model</a>
                 </div>
             </li>

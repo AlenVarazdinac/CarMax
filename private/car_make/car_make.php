@@ -1,13 +1,13 @@
-<?php include_once '../config.php';?>
+<?php include_once '../../config.php';?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <?php include_once '../includes/head-inc.php';?>
+    <?php include_once '../../includes/head-inc.php';?>
 </head>
 
 <body>
-    <?php include_once '../includes/navigation-inc.php';?>
+    <?php include_once '../../includes/navigation-inc.php';?>
 
     <?php 
     $command = $db->prepare('SELECT * FROM car_make;');
@@ -31,11 +31,18 @@
 
             <div class="col-md-3 jumbotron py-5 mx-2">
 
-                <?php if(file_exists("../img/car_make/" . $carMake->car_make_name . ".jpg")) : ?>
+                <?php if(file_exists("../../img/car_make/" . $carMake->car_make_name . ".jpg")) : ?>
                 <img src="<?php echo $appPath . "img/car_make/" . $carMake->car_make_name . ".jpg";?>" alt="Car Make Logo" class="w-100" />
 
                 <?php endif; ?>
                 <a href="#" class="btn btn-primary d-flex justify-content-center mb-0">Show</a>
+                
+                <form action="car_make_edit.php" method="get">
+                
+                    <button class="btn btn-dark d-flex justify-content-center mb-0 mt-2 col-md-12">Edit</button>
+                    <input type="hidden" name="carMakeId" id="carMakeId" value="<?php echo $carMake->car_make_id;?>" />   
+                                     
+                </form>
             </div>
 
             <?php endforeach; ?>
@@ -48,9 +55,9 @@
     </div>
 
 
-    <?php include_once '../includes/footer-inc.php';?>
+    <?php include_once '../../includes/footer-inc.php';?>
 
-    <?php include_once '../includes/scripts-inc.php';?>
+    <?php include_once '../../includes/scripts-inc.php';?>
 </body>
 
 </html>
