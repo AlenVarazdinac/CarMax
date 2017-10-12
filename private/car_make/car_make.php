@@ -41,10 +41,13 @@
                 
                 <form action="car_make_edit.php" method="get">
                 
-                    <button class="btn btn-dark d-flex justify-content-center mb-0 mt-2 col-md-12">Edit</button>
+                    <button class="btn btn-dark d-flex justify-content-center mb-2 mt-2 col-md-12">Edit</button>
                     <input type="hidden" name="carMakeId" id="carMakeId" value="<?php echo $carMake->car_make_id;?>" />   
                                      
                 </form>
+                
+                <a href="removing_car_make.php?car_make_id=<?php echo $carMake->car_make_id;?>" class="btn btn-danger d-flex justify-content-center mb-0">Remove</a>
+                
             </div>
 
             <?php endforeach; ?>
