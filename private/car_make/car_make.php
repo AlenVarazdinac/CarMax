@@ -30,7 +30,9 @@
             <?php foreach($result as $carMake): ?>
 
             <div class="col-md-3 jumbotron py-5 mx-2">
-
+                
+                <p><?php echo $carMake->car_make_name;?></p>
+                
                 <?php if(file_exists("../../img/car_make/" . $carMake->car_make_id . ".jpg")) : ?>
                 <img src="<?php echo $appPath . "img/car_make/" . $carMake->car_make_id . ".jpg";?>" alt="Car Make Logo" class="w-100" />
 
