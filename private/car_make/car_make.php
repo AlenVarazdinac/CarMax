@@ -31,8 +31,8 @@
 
             <div class="col-md-3 jumbotron py-5 mx-2">
 
-                <?php if(file_exists("../../img/car_make/" . $carMake->car_make_name . ".jpg")) : ?>
-                <img src="<?php echo $appPath . "img/car_make/" . $carMake->car_make_name . ".jpg";?>" alt="Car Make Logo" class="w-100" />
+                <?php if(file_exists("../../img/car_make/" . $carMake->car_make_id . ".jpg")) : ?>
+                <img src="<?php echo $appPath . "img/car_make/" . $carMake->car_make_id . ".jpg";?>" alt="Car Make Logo" class="w-100" />
 
                 <?php endif; ?>
                 <a href="#" class="btn btn-primary d-flex justify-content-center mb-0">Show</a>

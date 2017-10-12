@@ -27,7 +27,7 @@
             <h3 class="mb-4 text-center">Edit Car Make</h3>
             
             <!-- Add car form -->
-            <form action="adding_car_make.php" method="post" enctype="multipart/form-data">
+            <form action="editing_car_make.php" method="post" enctype="multipart/form-data">
                 <div class="row justify-content-center">
 
                     <div class="col-md-6 mb-2">
@@ -54,7 +54,9 @@
                         <a href="car_make.php" type="button" class="btn btn-danger btn-block">Cancel</a>
                     </div>
                 </div>
-
+                
+                <input type="hidden" name="carMakeId" id="carMakeId" value="<?php echo $carMakeId;?>"/>
+                
             </form>
 
         </div>
