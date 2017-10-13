@@ -17,7 +17,7 @@
         </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="<?php echo $appPath;?>private/car_make/car_make.php">Car make</a>
-                    <a class="dropdown-item" href="#">Car model</a>
+                    <a class="dropdown-item" href="<?php echo $appPath;?>private/car_model/car_model.php">Car model</a>
                 </div>
             </li>
             <?php endif; ?>
@@ -29,7 +29,7 @@
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <?php if(!isset($_SESSION['logged'])): ?>
-            <a href="<?php echo $appPath;?>public/login.php" class="btn btn-info my-2 my-sm-0 text-light" type="submit">Log in</a>
+            <a href="<?php echo $appPath;?>public/login.php" class="btn btn-secondary my-2 my-sm-0 text-light" type="submit">Log in</a>
             <a class="btn btn-primary ml-2 my-2 my-sm-0 text-light" type="submit">Register</a>
             <?php else: ?>
             <a href="<?php echo $appPath;?>public/logout.php" class="btn btn-danger ml-2 my-2 my-sm-0 text-light" type="submit">Log out</a>
