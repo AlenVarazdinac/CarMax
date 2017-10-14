@@ -43,14 +43,13 @@ FROM car_make a INNER JOIN car_model b ON a.car_make_id=b.car_make_id WHERE car_
                 <?php endif; ?>
 
                 <div class="col-md-12">
-                    <div class="row justify-content-md-between mt-3">
+                    <div class="row justify-content-md-between justify-content-center mt-3 d-flex align-items-center">
                         <h3 class="text-left">
-                            <?php echo $carMakeName . ' ' . $carModelName . ' ' . $carModelVariant;?>
+                            <?php echo $carMakeName . ' ' . $carModelName . ' ' . $carModelVariant;?>  &nbsp;
                         </h3>
 
                         <h4 class="text-right">
-                            $
-                            <?php echo $carModelPrice;?>
+                            $<?php echo $carModelPrice;?>
                         </h4>
                     </div>
 
@@ -100,7 +99,11 @@ FROM car_make a INNER JOIN car_model b ON a.car_make_id=b.car_make_id WHERE car_
                             <?php echo $carModelDesc;?>
                         </p>
                     </div>
-
+                    
+                    <div class="row justify-content-md-center d-flex align-items-start mt-2">
+                        <a href="car_model.php" class="btn btn-danger d-flex justify-content-center mb-0 col-md-3">Back</a>
+                    </div>
+                    
                 </div>
 
             </div>
