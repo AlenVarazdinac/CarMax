@@ -22,7 +22,7 @@
                     <div class="col-md-6 mb-2">
                         <label class="custom-file col-md-12">
                             <input type="file" name="file2" id="file2" class="custom-file-input">
-                            <span class="custom-file-control"></span>
+                            <span class="custom-file-control">Car make image</span>
                         </label>
                     </div>
 
