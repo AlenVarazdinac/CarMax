@@ -60,7 +60,7 @@ FROM car_make a INNER JOIN car_model b ON a.car_make_id=b.car_make_id;');
                 <form action="car_model_edit.php" method="get">
 
                     <button class="btn btn-dark d-flex justify-content-center mb-2 mt-2 col-md-12">Edit</button>
-                    <input type="hidden" name="carMakeId" id="carModelId" value="<?php echo $carModel->car_model_id;?>" />
+                    <input type="hidden" name="carModelId" id="carModelId" value="<?php echo $carModel->car_model_id;?>" />
 
                 </form>
 
