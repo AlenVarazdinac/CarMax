@@ -23,7 +23,7 @@
             <?php endif; ?>
 
             <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="<?php echo $appPath;?>public/about.php">About</a>
             </li>
 
         </ul>

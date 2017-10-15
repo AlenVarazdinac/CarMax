@@ -53,8 +53,24 @@
 
                 </form>
             </div>
+            
         </div>
-
+        
+        
+        <ul>
+            <li><p><strong>Admin account</strong></p></li>
+            <ul>
+                <li><strong>Username - </strong>AlenV</li>
+                <li><strong>Password - </strong>123</li>    
+            </ul>
+            
+            <li><p><strong>Member account</strong></p></li>
+            <ul>
+                <li><strong>Username - </strong>Test1</li>
+                <li><strong>Password - </strong>123</li>    
+            </ul>
+        </ul>
+        
     </div>
 
     <?php include_once '../includes/footer-inc.php';?>
