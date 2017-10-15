@@ -2,7 +2,7 @@ DROP DATABASE IF EXISTS carmax;
 CREATE DATABASE carmax DEFAULT CHARACTER SET utf8;
 USE carmax;
 
-# Crete tables
+# Create tables
 CREATE TABLE car_make(
     car_make_id         INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     car_make_name       VARCHAR(120) NOT NULL
