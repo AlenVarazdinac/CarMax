@@ -23,6 +23,17 @@ CREATE TABLE car_model(
     car_make_id         INT NOT NULL
 );
 
+CREATE TABLE car_feature(
+    car_feature_id      INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    car_feature_name    VARCHAR(120) NOT NULL
+);
+
+CREATE TABLE model_feature(
+    model_id            INT NOT NULL,
+    feature_id          INT NOT NULL,
+    PRIMARY KEY         (model_id, feature_id)
+);
+
 CREATE TABLE user(
     user_id             INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     user_name           VARCHAR(75) NOT NULL,
@@ -33,6 +44,9 @@ CREATE TABLE user(
 
 # Alter database
 ALTER TABLE car_model ADD FOREIGN KEY (car_make_id) REFERENCES car_make(car_make_id);
+
+ALTER TABLE model_feature ADD FOREIGN KEY (model_id) REFERENCES car_model(car_model_id);
+ALTER TABLE model_feature ADD FOREIGN KEY (feature_id) REFERENCES car_feature(car_feature_id);
 
 # Insert data
 INSERT INTO car_make(car_make_name)
@@ -49,3 +63,15 @@ INSERT INTO user(user_name, user_email, user_password, user_rights)
 VALUES
 ('AlenV', 'alen.varazdinac@gmail.com', md5('123'), 'Admin'),
 ('Test1', 'test@gmail.com', md5('123'), 'User');
+
+INSERT INTO car_feature(car_feature_name) 
+VALUES 
+('ABS'), 
+('Rain sensor'), 
+('Cruise control'), 
+('Light sensor');
+
+INSERT INTO model_feature(model_id, feature_id) 
+VALUES 
+(1, 1),
+(1, 2); 
