@@ -41,13 +41,13 @@
                         <td class="text-center">
                             <?php echo $carFeature->car_feature_name;?>
                         </td>
-                        <td class="text-center"><a href="car_feature_edit.php?carFeatureId=<?php echo $carFeature->car_feature_id;?>">Edit</a> | <a href="car_feature_remove.php">Remove</a></td>
+                        <td class="text-center"><a href="car_feature_edit.php?carFeatureId=<?php echo $carFeature->car_feature_id;?>">Edit</a> | <a href="removing_car_feature.php?carFeatureId=<?php echo $carFeature->car_feature_id;?>">Remove</a></td>
                     </tr>
                     <?php endforeach; ?>
 
                     <!-- Add car feature -->
                     <tr>
-                        <td class="text-center" colspan="3"><a href="index.php">Click to add new car feature</td></a>
+                        <td class="text-center" colspan="3"><a href="car_feature_add.php">Click to add new car feature</td></a>
                     </tr>
                 </tbody>
 
