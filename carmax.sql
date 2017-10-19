@@ -74,4 +74,6 @@ VALUES
 INSERT INTO model_feature(model_id, feature_id) 
 VALUES 
 (1, 1),
-(1, 2); 
+(1, 2), 
+(2, 2),
+(2,3);
