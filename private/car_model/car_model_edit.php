@@ -10,11 +10,31 @@
     <?php include_once '../../includes/navigation-inc.php';?>
 
     <?php
+    /*  Request for car features */
     $carModelId = $_GET['carModelId'];
-    $command = $db->prepare('SELECT a.car_make_id, a.car_make_name, b.car_model_id, b.car_model_name, b.car_model_variant, b.car_model_price, b.car_model_power, b.car_model_mileage, b.car_model_fuel_type, b.car_model_fuel_cons, b.car_model_gearbox, b.car_model_desc
-FROM car_make a INNER JOIN car_model b ON a.car_make_id=b.car_make_id WHERE car_model_id=:car_model_id;');
+    $command = $db->prepare('SELECT a.car_make_id, a.car_make_name, b.car_model_id, b.car_model_name, b.car_model_variant, b.car_model_price, b.car_model_power, b.car_model_power, b.car_model_mileage, b.car_model_fuel_type, b.car_model_fuel_cons, b.car_model_gearbox, b.car_model_gearbox, b.car_model_desc, d.car_feature_name
+        FROM car_make a 
+        INNER JOIN car_model b ON a.car_make_id=b.car_make_id
+        INNER JOIN model_feature c ON b.car_model_id=c.model_id
+        INNER JOIN car_feature d ON c.feature_id=d.car_feature_id
+        WHERE b.car_model_id=:car_model_id;');
     $command->execute(array(':car_model_id'=>$carModelId));
+    $result = $command->fetchAll(PDO::FETCH_OBJ);
     
+    foreach ($result as $carFeature) {
+        $carFeatures[] = $carFeature->car_feature_name;
+    }
+    echo implode(', ', $carFeatures);
+    
+    /* Request for car model details */
+    $carModelId = $_GET['carModelId'];
+    $command = $db->prepare('SELECT a.car_make_id, a.car_make_name, b.car_model_id, b.car_model_name, b.car_model_variant, b.car_model_price, b.car_model_power, b.car_model_power, b.car_model_mileage, b.car_model_fuel_type, b.car_model_fuel_cons, b.car_model_gearbox, b.car_model_gearbox, b.car_model_desc, d.car_feature_name
+        FROM car_make a 
+        INNER JOIN car_model b ON a.car_make_id=b.car_make_id
+        INNER JOIN model_feature c ON b.car_model_id=c.model_id
+        INNER JOIN car_feature d ON c.feature_id=d.car_feature_id
+        WHERE b.car_model_id=:car_model_id;');
+    $command->execute(array(':car_model_id'=>$carModelId));
     while($row = $command->fetch(PDO::FETCH_ASSOC)) {
         $carMakeId = $row['car_make_id'];
         $carMakeName = $row['car_make_name'];
@@ -28,7 +48,7 @@ FROM car_make a INNER JOIN car_model b ON a.car_make_id=b.car_make_id WHERE car_
         $carModelGearbox = $row['car_model_gearbox'];
         $carModelDesc = $row['car_model_desc'];
     }
-    echo $carMakeId;
+    
     $carGearbox = array('Manual', 'Automatic');
     $carFuelType = array('Petrol', 'Diesel');
     
@@ -137,14 +157,13 @@ FROM car_make a INNER JOIN car_model b ON a.car_make_id=b.car_make_id WHERE car_
                     
                     <div class="row justify-content-center">
                         <!-- Model price -->
-                        <div class="col-md-6 mb-2 input-group">
+                        <div class="col-md-5 mb-2 input-group">
                             <div class="input-group-addon">$</div>
                             <input class="form-control" type="number" name="carModelPrice" id="carModelPrice" placeholder="Enter car price *" step=0.01 min=0 value="<?php echo $carModelPrice;?>"/>
                         </div>
-                    </div>
                     
-                    <div class="row justify-content-center">
-                        <div class="col-md-6 mb-2">
+                        <!-- Model image -->
+                        <div class="col-md-5 mb-2">
                             <label class="custom-file col-md-12">
                             <input type="file" name="file2" id="file2" class="custom-file-input">
                             <span class="custom-file-control">Car model image</span>
@@ -152,7 +171,25 @@ FROM car_make a INNER JOIN car_model b ON a.car_make_id=b.car_make_id WHERE car_
                         </div>
                     </div>
 
-
+                    <!-- Car features -->
+                    <?php
+                    $command = $db->query('SELECT car_feature_id, car_feature_name FROM car_feature;');
+                    $result = $command->fetchAll(PDO::FETCH_OBJ);
+                    ?>
+                    <div class="row d-flex justify-content-center mt-2 align-items-center">
+                    <?php foreach($result as $carFeature): ?>
+                    <div class="col-md-2">
+                        <label for="carFeature<?php echo $carFeature->car_feature_name; ?>"><?php echo $carFeature->car_feature_name; ?></label>
+                        <input type="checkbox" name="carFeature[]" id="carFeature<?php echo $carFeature->car_feature_name; ?>" value="<?php echo $carFeature->car_feature_id; ?>" 
+                        <?php if (in_array($carFeature->car_feature_name, $carFeatures)){
+                        echo 'checked=checked';
+                        }?>
+                        />
+                    </div>
+                    <?php endforeach; ?>
+                    </div>
+                   
+                   
                     <div class="row justify-content-center mt-2 mt-md-4">
                        
                         <div class="col-md-4">
