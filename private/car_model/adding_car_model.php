@@ -11,8 +11,11 @@ $carModelGearbox = $_POST['carModelGearbox'];
 $carModelFuelType = $_POST['carModelFuelType'];
 $carModelFuelCons = $_POST['carModelFuelCons'];
 $carModelDesc = $_POST['carModelDesc'];
+$carFeature = $_POST['carFeature'];
 
 if($carMakeName && $carModelName && $carModelPower && $carModelPrice && $carModelMileage && $carModelGearbox && $carModelFuelType != '') {
+    $db->beginTransaction();
+    
     $command = $db->prepare("INSERT INTO car_model (car_model_name, car_model_variant, car_model_price, car_model_power, car_model_mileage, car_model_gearbox, car_model_fuel_type, car_model_fuel_cons, car_model_desc, car_make_id) VALUES (:car_model_name, :car_model_variant, :car_model_price, :car_model_power, :car_model_mileage, :car_model_gearbox, :car_model_fuel_type, :car_model_fuel_cons, :car_model_desc, :car_make_id)");
     $command->bindParam('car_model_name', $carModelName);
     $command->bindparam('car_model_variant', $carVariantName);
@@ -25,8 +28,18 @@ if($carMakeName && $carModelName && $carModelPower && $carModelPrice && $carMode
     $command->bindParam('car_model_desc', $carModelDesc);
     $command->bindparam('car_make_id', $carMakeName);
     $command->execute();
-
+    
     $lastId = $db->lastInsertId();
+    
+    foreach($carFeature as $feature) {
+        $command = $db->prepare("INSERT INTO model_feature(model_id, feature_id) VALUES (:model_id, :feature_id)");
+        $command->bindParam('model_id', $lastId);
+        $command->bindParam('feature_id', $feature);
+        $command->execute();    
+    }
+    
+    
+    $db->commit();
 
     if(isset($_FILES['file2'])) {
         move_uploaded_file($_FILES['file2']['tmp_name'], "../../img/car_model/" . $lastId . ".jpg");
