@@ -11,7 +11,9 @@ $carModelGearbox = $_POST['carModelGearbox'];
 $carModelFuelType = $_POST['carModelFuelType'];
 $carModelFuelCons = $_POST['carModelFuelCons'];
 $carModelDesc = $_POST['carModelDesc'];
-$carFeature = $_POST['carFeature'];
+if(isset($_POST['carFeature'])) {
+    $carFeature = $_POST['carFeature'];
+}
 
 if($carMakeName && $carModelName && $carModelPower && $carModelPrice && $carModelMileage && $carModelGearbox && $carModelFuelType != '') {
     $db->beginTransaction();
@@ -31,12 +33,15 @@ if($carMakeName && $carModelName && $carModelPower && $carModelPrice && $carMode
     
     $lastId = $db->lastInsertId();
     
-    foreach($carFeature as $feature) {
-        $command = $db->prepare("INSERT INTO model_feature(model_id, feature_id) VALUES (:model_id, :feature_id)");
-        $command->bindParam('model_id', $lastId);
-        $command->bindParam('feature_id', $feature);
-        $command->execute();    
+    if($carFeature!=''){
+        foreach($carFeature as $feature) {
+            $command = $db->prepare("INSERT INTO model_feature(model_id, feature_id) VALUES (:model_id, :feature_id)");
+            $command->bindParam('model_id', $lastId);
+            $command->bindParam('feature_id', $feature);
+            $command->execute();    
+        }    
     }
+    
     
     
     $db->commit();

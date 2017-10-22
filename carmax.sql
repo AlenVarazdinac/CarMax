@@ -30,8 +30,7 @@ CREATE TABLE car_feature(
 
 CREATE TABLE model_feature(
     model_id            INT NOT NULL,
-    feature_id          INT NOT NULL,
-    PRIMARY KEY         (model_id, feature_id)
+    feature_id          INT
 );
 
 CREATE TABLE user(
@@ -75,5 +74,4 @@ INSERT INTO model_feature(model_id, feature_id)
 VALUES 
 (1, 1),
 (1, 2), 
-(2, 2),
-(2, 3);
+(2, 2);
