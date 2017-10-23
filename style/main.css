@@ -10,6 +10,12 @@
     background-size: cover;
 }
 
+.carousel_img {
+    height: 640px;
+    background-position: 50% 50%; 
+    background-size: cover;    
+}
+
 @media (max-width: 320px) {
     .model_img {
         height: 200px; 

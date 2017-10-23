@@ -37,7 +37,7 @@
 
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="d-block w-100 img-responsive mx-auto" src="img/car_model/<?php echo $cheapestModelId;?>.jpg" alt="First slide">
+                    <img class="d-block w-100 img-responsive mx-auto carousel_img" src="img/car_model/<?php echo $cheapestModelId;?>.jpg" alt="First slide">
                     <div class="jumbotron">
                         <div class="carousel-caption d-none d-md-block">
                             <h3 style="color: black;">Cheapest car we offer</h3>
@@ -46,7 +46,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100 img-responsive mx-auto" src="img/car_model/<?php echo $expensiveModelId;?>.jpg" alt="First slide">
+                    <img class="d-block w-100 img-responsive mx-auto carousel_img" src="img/car_model/<?php echo $expensiveModelId;?>.jpg" alt="First slide">
                     <div class="jumbotron">
                         <div class="carousel-caption d-none d-md-block">
                             <h3 style="color: black;">The most expensive car we offer</h3>
@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100 img-responsive mx-auto" src="img/car_model/<?php echo $lastAddedModelId;?>.jpg" alt="First slide">
+                    <img class="d-block w-100 img-responsive mx-auto carousel_img" src="img/car_model/<?php echo $lastAddedModelId;?>.jpg" alt="First slide">
                     <div class="jumbotron">
                         <div class="carousel-caption d-none d-md-block">
                             <h3 style="color: black;">Latest model added</h3>
