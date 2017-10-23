@@ -15,8 +15,8 @@
     $command = $db->prepare('SELECT a.car_make_id, a.car_make_name, b.car_model_id, b.car_model_name, b.car_model_variant, b.car_model_price, b.car_model_power, b.car_model_power, b.car_model_mileage, b.car_model_fuel_type, b.car_model_fuel_cons, b.car_model_gearbox, b.car_model_gearbox, b.car_model_desc, d.car_feature_name
         FROM car_make a 
         INNER JOIN car_model b ON a.car_make_id=b.car_make_id
-        INNER JOIN model_feature c ON b.car_model_id=c.model_id
-        INNER JOIN car_feature d ON c.feature_id=d.car_feature_id
+        left JOIN model_feature c ON b.car_model_id=c.model_id
+        left JOIN car_feature d ON c.feature_id=d.car_feature_id
         WHERE b.car_model_id=:car_model_id;');
     $command->execute(array(':car_model_id'=>$carModelId));
     $result = $command->fetchAll(PDO::FETCH_OBJ);
@@ -24,15 +24,15 @@
     foreach ($result as $carFeature) {
         $carFeatures[] = $carFeature->car_feature_name;
     }
-    echo implode(', ', $carFeatures);
+   // echo implode(', ', $carFeatures);
     
     /* Request for car model details */
     $carModelId = $_GET['carModelId'];
     $command = $db->prepare('SELECT a.car_make_id, a.car_make_name, b.car_model_id, b.car_model_name, b.car_model_variant, b.car_model_price, b.car_model_power, b.car_model_power, b.car_model_mileage, b.car_model_fuel_type, b.car_model_fuel_cons, b.car_model_gearbox, b.car_model_gearbox, b.car_model_desc, d.car_feature_name
         FROM car_make a 
         INNER JOIN car_model b ON a.car_make_id=b.car_make_id
-        INNER JOIN model_feature c ON b.car_model_id=c.model_id
-        INNER JOIN car_feature d ON c.feature_id=d.car_feature_id
+        left JOIN model_feature c ON b.car_model_id=c.model_id
+        left JOIN car_feature d ON c.feature_id=d.car_feature_id
         WHERE b.car_model_id=:car_model_id;');
     $command->execute(array(':car_model_id'=>$carModelId));
     while($row = $command->fetch(PDO::FETCH_ASSOC)) {
@@ -181,7 +181,7 @@
                     <div class="col-md-2">
                         <label for="carFeature<?php echo $carFeature->car_feature_name; ?>"><?php echo $carFeature->car_feature_name; ?></label>
                         <input type="checkbox" name="carFeature[]" id="carFeature<?php echo $carFeature->car_feature_name; ?>" value="<?php echo $carFeature->car_feature_id; ?>" 
-                        <?php if (in_array($carFeature->car_feature_name, $carFeatures)){
+                        <?php if (isset($carFeatures) && in_array($carFeature->car_feature_name, $carFeatures)){
                         echo 'checked=checked';
                         }?>
                         />

@@ -12,10 +12,8 @@ $carModelGearbox = $_POST['carModelGearbox'];
 $carModelFuelType = $_POST['carModelFuelType'];
 $carModelFuelCons = $_POST['carModelFuelCons'];
 $carModelDesc = $_POST['carModelDesc'];
-$carFeature = array();
-array_push($carFeature, $_POST['carFeature']);
 
-print_r($carFeature);
+
 
 if($carMakeId && $carModelName && $carModelPower && $carModelPrice && $carModelMileage && $carModelGearbox && $carModelFuelType != '') {
     
@@ -34,10 +32,14 @@ if($carMakeId && $carModelName && $carModelPower && $carModelPrice && $carModelM
     $command->bindParam('car_make_id', $carMakeId);
     $command->bindParam('car_model_id', $carModelId);
     $command->execute();
+    
+     $command = $db->prepare("delete from model_feature WHERE model_id=:model_id;");
+        $command->bindParam('model_id', $carModelId);
+        $command->execute();
 
-    foreach($carFeature as $value) {
-        $command = $db->prepare("UPDATE model_feature SET feature_id=:feature_id WHERE model_id=:model_id;");
-        $command->bindParam('feature_id', implode(', ', $value));
+    foreach($_POST["carFeature"] as $value) {
+        $command = $db->prepare("insert into model_feature (feature_id, model_id) values(:feature_id,:model_id);");
+        $command->bindParam('feature_id', $value);
         $command->bindParam('model_id', $carModelId);
         $command->execute();
     }
