@@ -10,10 +10,18 @@
     <?php include_once '../../includes/navigation-inc.php';?>
 
     <?php 
+    if(isset($_GET['selectedCarMake'])) {
+    $command = $db->prepare('SELECT car_make_name, car_model_id, car_model_name, car_model_variant, car_model_price, car_model_power, car_model_mileage, car_model_fuel_type, car_model_fuel_cons, car_model_gearbox, car_model_desc
+FROM car_make a INNER JOIN car_model b ON a.car_make_id=b.car_make_id WHERE a.car_make_id=:car_make_id;'); 
+    $command->execute(array(':car_make_id'=>$_GET['selectedCarMake']));
+    $result = $command->fetchAll(PDO::FETCH_OBJ);   
+    } else {
     $command = $db->prepare('SELECT car_make_name, car_model_id, car_model_name, car_model_variant, car_model_price, car_model_power, car_model_mileage, car_model_fuel_type, car_model_fuel_cons, car_model_gearbox, car_model_desc
 FROM car_make a INNER JOIN car_model b ON a.car_make_id=b.car_make_id;');
     $command->execute();
-    $result = $command->fetchAll(PDO::FETCH_OBJ);
+    $result = $command->fetchAll(PDO::FETCH_OBJ);    
+    }
+    
     ?>
 
 

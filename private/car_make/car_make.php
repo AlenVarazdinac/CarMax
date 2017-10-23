@@ -37,7 +37,7 @@
                 <img src="<?php echo $appPath . "img/car_make/" . $carMake->car_make_id . ".jpg";?>" alt="Car Make Logo" class="w-100" />
 
                 <?php endif; ?>
-                <a href="#" class="btn btn-primary d-flex justify-content-center mb-0">Show</a>
+                <a href="../car_model/car_model.php?selectedCarMake=<?php echo $carMake->car_make_id; ?>" class="btn btn-primary d-flex justify-content-center mb-0">Show</a>
                 
                 <form action="car_make_edit.php" method="get">
                 
