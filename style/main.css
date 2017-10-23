@@ -1,0 +1,19 @@
+.make_img {
+    height: 200px; 
+    background-position: 50% 50%; 
+    background-size: cover;
+}
+
+.model_img {
+    height: 250px; 
+    background-position: 50% 50%; 
+    background-size: cover;
+}
+
+@media (max-width: 320px) {
+    .model_img {
+        height: 200px; 
+        background-position: 50% 50%; 
+        background-size: cover;
+    } 
+}

@@ -8,3 +8,6 @@
 
 <!-- Font Awesome -->
 <link rel="stylesheet" href="<?php echo $appPath;?>font-awesome-4.7.0/css/font-awesome.min.css">
+
+<!-- My CSS -->
+<link rel="stylesheet" href="<?php echo $appPath;?>style/main.css" />

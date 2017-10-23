@@ -34,7 +34,7 @@
                 <p><?php echo $carMake->car_make_name;?></p>
                 
                 <?php if(file_exists("../../img/car_make/" . $carMake->car_make_id . ".jpg")) : ?>
-                <img src="<?php echo $appPath . "img/car_make/" . $carMake->car_make_id . ".jpg";?>" alt="Car Make Logo" class="w-100" />
+                <img src="<?php echo $appPath . "img/car_make/" . $carMake->car_make_id . ".jpg";?>" alt="Car Make Logo" class="w-100 mb-3 make_img" />
 
                 <?php endif; ?>
                 <a href="../car_model/car_model.php?selectedCarMake=<?php echo $carMake->car_make_id; ?>" class="btn btn-primary d-flex justify-content-center mb-0">Show</a>

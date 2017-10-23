@@ -16,7 +16,7 @@
         LEFT JOIN model_feature c ON b.car_model_id=c.model_id
         LEFT JOIN car_feature d ON c.feature_id=d.car_feature_id
         WHERE b.car_model_id=:car_model_id;');
-        $command->execute(array(':car_model_id'=>$_POST['carModelId']));
+        $command->execute(array(':car_model_id'=>$_GET['carModelId']));
         
         while ($row = $command->fetch(PDO::FETCH_ASSOC)) {
             $carMakeName = $row['car_make_name'];
@@ -43,7 +43,7 @@
         INNER JOIN model_feature c ON b.car_model_id=c.model_id
         LEFT JOIN car_feature d ON c.feature_id=d.car_feature_id
         WHERE b.car_model_id=:car_model_id;');
-        $command->execute(array(':car_model_id'=>$_POST['carModelId']));
+        $command->execute(array(':car_model_id'=>$_GET['carModelId']));
         $result = $command->fetchAll(PDO::FETCH_OBJ); 
     ?>
 

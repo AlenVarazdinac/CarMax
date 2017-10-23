@@ -55,14 +55,17 @@ FROM car_make a INNER JOIN car_model b ON a.car_make_id=b.car_make_id;');
                 </div>
 
                 <?php if(file_exists("../../img/car_model/" . $carModel->car_model_id . ".jpg")) : ?>
-                <img src="<?php echo $appPath . "img/car_model/" . $carModel->car_model_id . ".jpg ";?>" alt="Car Model" class="w-100" />
+                <img src="<?php echo $appPath . "img/car_model/" . $carModel->car_model_id . ".jpg ";?>" alt="Car Model" class="w-100 model_img" />
 
                 <?php endif; ?>
                 
                 
                 <form action="car_model_show.php" method="post">
+                    <!--
                     <input type="hidden" name="carModelId" id="carModelId" value="<?php echo $carModel->car_model_id;?>" />
                     <button class="btn btn-primary d-flex justify-content-center mb-0 col-md-12 mt-3">Show</button>
+                    -->
+                    <a href="car_model_show.php?carModelId=<?php echo $carModel->car_model_id; ?>" class="btn btn-primary d-flex justify-content-center mb-0 col-md-12 mt-3">Show</a>
                 </form>
 
                 <form action="car_model_edit.php" method="get">
