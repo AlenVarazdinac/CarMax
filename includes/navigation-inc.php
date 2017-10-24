@@ -31,7 +31,7 @@
         <form class="form-inline my-2 my-lg-0">
             <?php if(!isset($_SESSION['logged'])): ?>
             <a href="<?php echo $appPath;?>public/login.php" class="btn btn-secondary my-2 my-sm-0 text-light" type="submit">Log in</a>
-            <a class="btn btn-primary ml-2 my-2 my-sm-0 text-light" type="submit">Register</a>
+            <a href="<?php echo $appPath;?>public/register.php" class="btn btn-primary ml-2 my-2 my-sm-0 text-light" type="submit">Register</a>
             <?php else: ?>
             <a href="<?php echo $appPath;?>public/logout.php" class="btn btn-danger ml-2 my-2 my-sm-0 text-light" type="submit">Log out</a>
             <?php endif; ?>

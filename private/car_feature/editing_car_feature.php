@@ -1,5 +1,5 @@
 <?php
-include_once '../../config.php';
+include_once '../../config.php'; checkLogin(); checkRole('Admin');
 
 $carFeatureId = $_POST['carFeatureId'];
 $carFeatureName = $_POST['carFeatureName'];

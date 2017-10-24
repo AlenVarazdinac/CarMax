@@ -1,4 +1,4 @@
-<?php include_once '../../config.php';?>
+<?php include_once '../../config.php'; checkLogin(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,7 +26,8 @@ FROM car_make a INNER JOIN car_model b ON a.car_make_id=b.car_make_id;');
 
 
     <div class="container mt-5">
-
+       
+        <?php if(isset($_SESSION['logged']) && $_SESSION['logged']->user_rights==='Admin'): ?>
         <div class="row justify-content-center">
 
             <!-- Add button for car make -->
@@ -35,7 +36,7 @@ FROM car_make a INNER JOIN car_model b ON a.car_make_id=b.car_make_id;');
                 <a href="car_model_add.php" class="btn btn-primary d-flex justify-content-center mb-0">Add</a>
             </div>
         </div>
-
+        <?php endif; ?>
 
         <div class="row justify-content-center">
             <!-- Show all car makes -->
@@ -67,7 +68,8 @@ FROM car_make a INNER JOIN car_model b ON a.car_make_id=b.car_make_id;');
                     -->
                     <a href="car_model_show.php?carModelId=<?php echo $carModel->car_model_id; ?>" class="btn btn-primary d-flex justify-content-center mb-0 col-md-12 mt-3">Show</a>
                 </form>
-
+                
+                <?php if(isset($_SESSION['logged']) && $_SESSION['logged']->user_rights==='Admin'): ?>
                 <form action="car_model_edit.php" method="get">
 
                     <button class="btn btn-dark d-flex justify-content-center mb-2 mt-2 col-md-12">Edit</button>
@@ -76,6 +78,8 @@ FROM car_make a INNER JOIN car_model b ON a.car_make_id=b.car_make_id;');
                 </form>
 
                 <a href="removing_car_model.php?car_model_id=<?php echo $carModel->car_model_id;?>" class="btn btn-danger d-flex justify-content-center mb-0">Remove</a>
+                <?php endif; ?>
+                
 
             </div>
 

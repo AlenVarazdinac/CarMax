@@ -1,4 +1,4 @@
-<?php include_once '../../config.php';?>
+<?php include_once '../../config.php'; checkLogin(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,7 +27,9 @@
                     <tr>
                         <th class="text-center">#</th>
                         <th class="text-center">Feature name</th>
+                        <?php if(isset($_SESSION['logged']) && $_SESSION['logged']->user_rights==='Admin'): ?>
                         <th class="text-center">Option</th>
+                        <?php endif;?>
                     </tr>
                 </thead>
 
@@ -41,14 +43,20 @@
                         <td class="text-center">
                             <?php echo $carFeature->car_feature_name;?>
                         </td>
+                        <?php if(isset($_SESSION['logged']) && $_SESSION['logged']->user_rights==='Admin'): ?>
                         <td class="text-center"><a href="car_feature_edit.php?carFeatureId=<?php echo $carFeature->car_feature_id;?>">Edit</a> | <a href="removing_car_feature.php?carFeatureId=<?php echo $carFeature->car_feature_id;?>">Remove</a></td>
+                        <?php endif;?>
                     </tr>
                     <?php endforeach; ?>
-
+                    
+                    
                     <!-- Add car feature -->
+                    <?php if(isset($_SESSION['logged']) && $_SESSION['logged']->user_rights==='Admin'): ?>
                     <tr>
                         <td class="text-center" colspan="3"><a href="car_feature_add.php">Click to add new car feature</td></a>
                     </tr>
+                    <?php endif; ?>
+                    
                 </tbody>
 
             </table>

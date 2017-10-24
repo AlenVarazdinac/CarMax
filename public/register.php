@@ -14,11 +14,11 @@
         <div class="row mt-5 d-flex justify-content-center jumbotron">
            
             <div class="col-md-12 my-2">
-                <h2 class="text-center">Login</h2>
+                <h2 class="text-center">Register</h2>
             </div>
-           
+            
             <div class="col-md-9 m-md-2">
-                <form action="../authorize.php" method="post">
+                <form action="../registration.php" method="post">
 
                     <!-- Username Field -->
                     <div class="form-group">
@@ -28,6 +28,12 @@
 
                     <!-- Password Field -->
                     <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Enter e-mail">
+                    </div>
+                       
+                    <!-- Password Field -->
+                    <div class="form-group">
                         <label for="password">Password</label>
                         <input type="password" class="form-control" name="password" id="password" placeholder="Enter password">
                     </div>
@@ -35,46 +41,28 @@
                     <!-- Warning text -->
                     <p class="text-center text-danger">
                         <?php
-                                if(isset($_GET["norights"])) {
-                                    echo "Please login!";
-                                }
-                                if(isset($_GET["wrong"])) {
-                                    echo "Wrong username or password!";
-                                }
-                            ?>
+                            if(isset($_GET["notset"])) {
+                                echo "All fields must be filled!";
+                            }
+                        ?>
                     </p>
                     <!-- Success text -->
                     <p class="text-center text-success">
                         <?php
-                                if(isset($_GET["loggedout"])) {
-                                    echo "Successfully logged out!";
-                                }
-                            ?>
+                            if(isset($_GET["registered"])) {
+                                echo "Successfully registered!";
+                            }
+                        ?>
                     </p>
 
                     <div class="d-flex justify-content-center">
-                        <button type="submit" class="btn btn-primary btn-block mt-2">Log in</button>
+                        <button type="submit" class="btn btn-primary btn-block mt-2">Register</button>
                     </div>
 
                 </form>
             </div>
             
         </div>
-        
-        
-        <ul>
-            <li><p><strong>Admin account</strong></p></li>
-            <ul>
-                <li><strong>Username - </strong>AlenV</li>
-                <li><strong>Password - </strong>123</li>    
-            </ul>
-            
-            <li><p><strong>Member account</strong></p></li>
-            <ul>
-                <li><strong>Username - </strong>Test1</li>
-                <li><strong>Password - </strong>123</li>    
-            </ul>
-        </ul>
         
     </div>
 

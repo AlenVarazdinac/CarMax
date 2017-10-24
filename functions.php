@@ -2,14 +2,14 @@
 
 function checkLogin() {
     if (!isset($_SESSION['logged'])) {
-        header("location: " . $GLOBALS['pathApp'] . "public/login.php?norights"));
+        header("location: " . $GLOBALS['appPath'] . "public/login.php?norights");
         exit;
     }
 }
 
 function checkRole($role) {
-    if(!(isset($_SESSION['logged']) && $_SESSION['logged']->role===$role)) {
-        header("location: " . $GLOBALS['pathApp'] . "public/index.php");
+    if(!(isset($_SESSION['logged']) && $_SESSION['logged']->user_rights===$role)) {
+        header("location: " . $GLOBALS['appPath'] . "index.php");
         exit;
     }
 }

@@ -41,6 +41,13 @@ CREATE TABLE user(
     user_rights         VARCHAR(15) NOT NULL DEFAULT 'Member'
 );
 
+CREATE TABLE contact_us(
+    contact_us_id       INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    contact_mail        VARCHAR(120) NOT NULL,
+    contact_subject     VARCHAR(120) NOT NULL,
+    contact_message     TEXT NOT NULL
+);
+
 # Alter database
 ALTER TABLE car_model ADD FOREIGN KEY (car_make_id) REFERENCES car_make(car_make_id);
 

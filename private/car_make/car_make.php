@@ -1,4 +1,4 @@
-<?php include_once '../../config.php';?>
+<?php include_once '../../config.php'; checkLogin();?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,11 +21,13 @@
         <div class="row">
 
             <!-- Add button for car make -->
+            <?php if(isset($_SESSION['logged']) && $_SESSION['logged']->user_rights==='Admin'): ?>
             <div class="col-md-3 jumbotron mx-2">
                 <i class="fa fa-plus-circle fa-5x d-flex justify-content-center mb-3" aria-hidden="true"></i>
                 <a href="car_make_add.php" class="btn btn-primary d-flex justify-content-center mb-0">Add</a>
             </div>
-
+            <?php endif;?>
+            
             <!-- Show all car makes -->
             <?php foreach($result as $carMake): ?>
 
@@ -39,6 +41,7 @@
                 <?php endif; ?>
                 <a href="../car_model/car_model.php?selectedCarMake=<?php echo $carMake->car_make_id; ?>" class="btn btn-primary d-flex justify-content-center mb-0">Show</a>
                 
+                <?php if(isset($_SESSION['logged']) && $_SESSION['logged']->user_rights==='Admin'): ?>
                 <form action="car_make_edit.php" method="get">
                 
                     <button class="btn btn-dark d-flex justify-content-center mb-2 mt-2 col-md-12">Edit</button>
@@ -47,6 +50,7 @@
                 </form>
                 
                 <a href="removing_car_make.php?car_make_id=<?php echo $carMake->car_make_id;?>" class="btn btn-danger d-flex justify-content-center mb-0">Remove</a>
+                <?php endif; ?>
                 
             </div>
 

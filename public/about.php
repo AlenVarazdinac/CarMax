@@ -24,14 +24,32 @@
             
             <div class="col-md-6">
                 <h3>Contact us</h3>
-                <form method="post" action="send_message.php" class="">
+                <form method="post" action="../send_message.php" class="">
                     <input type="email" name="contactEmail" placeholder="Email" class="form-control" value="<?php if(isset($_SESSION['logged'])) {
                         echo $_SESSION['logged']->user_email;
                     }?>"/>
                     <input type="text" name="contactSubject" placeholder="Subject" class="form-control mt-2" />
                     <textarea name="contactMessage" placeholder="Message" class="form-control mt-2"></textarea>
-                    <input type="submit" class="btn btn-primary btn-block mt-2 align-self-end" value="Send" disabled />
+                    <input type="submit" class="btn btn-primary btn-block mt-2 align-self-end" value="Send" />
                 </form>
+                
+                <!-- Success text -->
+                <p class="text-center mt-2 text-success">
+                    <?php
+                        if(isset($_GET["msgsent"])) {
+                            echo "Message sent!";
+                        }
+                    ?>
+                </p>
+                
+                <!-- Warning text -->
+                <p class="text-center text-danger">
+                    <?php
+                        if(isset($_GET["notset"])) {
+                            echo "All fields must be filled!";
+                        }
+                    ?>
+                </p>
                 
             </div>
             

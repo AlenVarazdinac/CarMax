@@ -1,5 +1,4 @@
-<?php
-include_once '../../config.php';
+<?php include_once '../../config.php'; checkLogin(); checkRole('Admin');
 
 $carMakeName = $_POST['carMakeName'];
 $carModelName = $_POST['carModelName'];

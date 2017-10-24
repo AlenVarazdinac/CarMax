@@ -1,5 +1,4 @@
-<?php
-include_once '../../config.php';
+<?php include_once '../../config.php'; checkLogin(); checkRole('Admin');
 
 $carMakeId = $_POST['carMakeId'];
 $carModelId = $_POST['carModelId'];
@@ -12,8 +11,6 @@ $carModelGearbox = $_POST['carModelGearbox'];
 $carModelFuelType = $_POST['carModelFuelType'];
 $carModelFuelCons = $_POST['carModelFuelCons'];
 $carModelDesc = $_POST['carModelDesc'];
-
-
 
 if($carMakeId && $carModelName && $carModelPower && $carModelPrice && $carModelMileage && $carModelGearbox && $carModelFuelType != '') {
     

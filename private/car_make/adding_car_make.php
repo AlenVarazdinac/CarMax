@@ -1,6 +1,6 @@
 <?php
 
-include_once '../../config.php';
+include_once '../../config.php'; checkLogin(); checkRole('Admin');
 
 if(isset($_POST['carMakeName'])) {
     $command = $db->prepare("INSERT INTO car_make (car_make_name) VALUES (:car_make_name)");

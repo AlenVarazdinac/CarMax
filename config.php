@@ -2,6 +2,8 @@
 
 session_start();
 
+include_once 'functions.php';
+
 $appName = 'CarMax';
 
 switch ($_SERVER['HTTP_HOST']) {
