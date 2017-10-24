@@ -14,7 +14,7 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Browse
-        </a>
+                </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                     <a class="dropdown-item" href="<?php echo $appPath;?>private/car_make/car_make.php">Car make</a>
                     <a class="dropdown-item" href="<?php echo $appPath;?>private/car_model/car_model.php">Car model</a>
@@ -25,6 +25,16 @@
 
             <li class="nav-item">
                 <a class="nav-link" href="<?php echo $appPath;?>public/about.php">About</a>
+            </li>
+            
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Links
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" target="_blank" href="https://github.com/AlenVarazdinac/CarMax">GitHub repository</a>
+                    <a class="dropdown-item" href="<?php echo $appPath;?>public/er.php">ER diagram</a>
+                </div>
             </li>
 
         </ul>
