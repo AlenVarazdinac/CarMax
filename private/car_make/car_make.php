@@ -23,7 +23,7 @@
             <!-- Add button for car make -->
             <?php if(isset($_SESSION['logged']) && $_SESSION['logged']->user_rights==='Admin'): ?>
             <div class="col-md-3 jumbotron mx-2">
-                <i class="fa fa-plus-circle fa-5x d-flex justify-content-center mb-3" aria-hidden="true"></i>
+                <i class="fa fa-plus-circle fa-5x d-flex justify-content-center mb-3 mt-md-5" aria-hidden="true"></i>
                 <a href="car_make_add.php" class="btn btn-primary d-flex justify-content-center mb-0">Add</a>
             </div>
             <?php endif;?>

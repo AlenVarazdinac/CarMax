@@ -20,6 +20,7 @@
             <div class="col-md-6">
                 <h3>About us</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet tempora consequatur, suscipit, dolores commodi labore ducimus molestias neque hic excepturi, soluta.</p>
+                
             </div>
             
             <div class="col-md-6">
@@ -31,7 +32,7 @@
                     <input type="text" name="contactSubject" placeholder="Subject" class="form-control mt-2" />
                     <textarea name="contactMessage" placeholder="Message" class="form-control mt-2"></textarea>
                     <input type="submit" class="btn btn-primary btn-block mt-2 align-self-end" value="Send" />
-                </form>
+                </form>                
                 
                 <!-- Success text -->
                 <p class="text-center mt-2 text-success">
@@ -50,6 +51,17 @@
                         }
                     ?>
                 </p>
+                
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <div class="row">
+                        <p class="text-center"><strong>Telephone </strong>+30 5216 215 612</p>
+                        </div>
+                        <div class="row">
+                        <p class="text-center"><strong>Skype </strong>CarMax</p>
+                        </div>
+                    </div>
+                </div>
                 
             </div>
             

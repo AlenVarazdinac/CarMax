@@ -10,16 +10,14 @@ if($carMakeName != '') {
     
     if(isset($_FILES['file2'])) {
        move_uploaded_file($_FILES['file2']['tmp_name'], "../../img/car_make/" . $_POST['carMakeId'] . ".jpg"); 
-    } 
-    
-    echo $_POST['carMakeId'];
-    echo "<br/>";
-    echo $_POST['carMakeName'];
-    
+    }    
     
     header('location: car_make.php');
     
 } else {
+    if(isset($_FILES['file2'])) {
+       move_uploaded_file($_FILES['file2']['tmp_name'], "../../img/car_make/" . $_POST['carMakeId'] . ".jpg"); 
+    } 
     header('location: car_make.php');
 }
 

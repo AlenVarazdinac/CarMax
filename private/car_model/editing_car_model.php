@@ -48,4 +48,10 @@ if($carMakeId && $carModelName && $carModelPower && $carModelPrice && $carModelM
     }
 
     header('location: car_model.php');    
+} else {
+    if(isset($_FILES['file2'])) {
+        move_uploaded_file($_FILES['file2']['tmp_name'], "../../img/car_model/" . $carModelId . ".jpg");
+    }
+
+    header('location: car_model.php'); 
 }
